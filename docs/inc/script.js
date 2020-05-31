@@ -6,11 +6,17 @@ function cheatButton () {
 
 }
 
-function moveButton () {
+function moveButton (e) {
+    console.log('move'+e.pointerType);
     clearTimeout(timeout);
+    if (e.pointerType=='touch'){
+        return
+    } else {
+    console.log(document.getElementById("runaway").style.left.slice(0,-1))
     document.getElementById("runaway").style.left=((Math.random()*90))+"%";
     document.getElementById("runaway").style.top=((Math.random()*90))+"%";
     document.getElementById("runaway").innerHTML="&#x1f623;";
+    }
 }
 
 function noFace () {
@@ -21,7 +27,9 @@ function noFace () {
     }
 }
 
-function clickButton () {
+function clickButton (e) {
+    console.log("click")
+    console.log(e.pointerType);
     disableNoFace=true
     let left = +document.getElementById("runaway").style.left.slice(0,-1)
     console.log(document.getElementById("runaway").style.left.slice(0,-1))
@@ -44,6 +52,7 @@ function clickButton () {
     document.getElementById("runaway").style.top=top+"%";
     document.getElementById("runaway").innerHTML="Too slow!";
     setTimeout(resetButton, 800)
+    console.log(document.getElementById("runaway").style.left.slice(0,-1))
 }
 
 function resetButton () {
@@ -63,8 +72,9 @@ let timeout=""
 disableNoFace=false
 document.addEventListener('click',clickEffect);
 document.addEventListener("keydown", cheatButton);
+
+document.getElementById("runaway").addEventListener("pointerdown", clickButton);
 document.getElementById("runaway").addEventListener("pointerover", moveButton);
 //document.getElementById("runaway").addEventListener("touchstart", moveButton);
 //document.getElementById("runaway").addEventListener("touchend", resetButton);
 document.getElementById("runaway").addEventListener("pointerout", noFace);
-document.getElementById("runaway").addEventListener("pointerdown", clickButton);
