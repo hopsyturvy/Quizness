@@ -50,7 +50,7 @@ function clickEffect(e){
     dd.addEventListener('animationend',function(){dd.parentElement.removeChild(dd);}.bind(this));
     }
 
-document.addEventListener('click',clickEffect);
+document.addEventListener('mousedown',clickEffect);
 document.addEventListener("keydown", cheatButton);
 document.getElementById("runaway").addEventListener("mouseover", moveButton);
 document.getElementById("runaway").addEventListener("click", clickButton);
