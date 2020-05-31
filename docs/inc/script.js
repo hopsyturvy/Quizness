@@ -33,10 +33,10 @@ function clickButton () {
     }
 
     let top = +document.getElementById("runaway").style.top.slice(0,-1)
-    if (top <50) {
-        top += 50
+    if (top <40) {
+        top += (40 + Math.random()*10)
     } else {
-        top -= 50
+        top -= 40
     }
     
 
