@@ -63,8 +63,8 @@ let timeout=""
 disableNoFace=false
 document.addEventListener('click',clickEffect);
 document.addEventListener("keydown", cheatButton);
-document.getElementById("runaway").addEventListener("mouseover", moveButton);
-document.getElementById("runaway").addEventListener("touchstart", moveButton);
-document.getElementById("runaway").addEventListener("touchend", resetButton);
-document.getElementById("runaway").addEventListener("mouseout", noFace);
-document.getElementById("runaway").addEventListener("mousedown", clickButton);
+document.getElementById("runaway").addEventListener("pointerover", moveButton);
+//document.getElementById("runaway").addEventListener("touchstart", moveButton);
+//document.getElementById("runaway").addEventListener("touchend", resetButton);
+document.getElementById("runaway").addEventListener("pointerout", noFace);
+document.getElementById("runaway").addEventListener("pointerdown", clickButton);
