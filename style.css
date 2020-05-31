@@ -1,0 +1,54 @@
+button#runaway {
+font-size: large;
+font-weight: bold;
+display: block;
+position:absolute;
+top:100px;
+left:100px;
+width:150px;
+height: 50px;
+}
+}
+
+div {
+    display: block;
+}
+
+div.container {
+    width: 100%;
+    height: 100%
+
+}
+
+a {
+    text-decoration: none;
+    color: black;
+    }
+
+div.clickEffect{
+    display: block;
+    position: absolute;
+    box-sizing:border-box;
+    border-style:solid;
+    border-color: black;
+    border-radius:50%;
+    animation: clickEffect 0.4s ease-out;
+    z-index:99999;
+}
+
+@keyframes clickEffect{
+0% {
+    opacity:1;
+    width: 0.5em; height:0.5em;
+    margin:-0.25em;
+    border-width:0.5em;
+    }
+
+100% {
+    opacity:0.2;
+    width:3em;
+    height:3em;
+    margin:-1.5em;
+    border-width:0.03em;
+    }
+}
