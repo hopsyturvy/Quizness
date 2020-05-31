@@ -8,8 +8,8 @@ function cheatButton () {
 
 function moveButton () {
     clearTimeout(timeout);
-    document.getElementById("runaway").style.left=((50+Math.random()*200))+"px";
-    document.getElementById("runaway").style.top=((10+Math.random()*200))+"px";
+    document.getElementById("runaway").style.left=((Math.random()*90))+"%";
+    document.getElementById("runaway").style.top=((Math.random()*90))+"%";
     document.getElementById("runaway").innerHTML="&#x1f623;";
 }
 
@@ -23,25 +23,25 @@ function noFace () {
 
 function clickButton () {
     disableNoFace=true
-    let left = +document.getElementById("runaway").style.left.slice(0,-2)
-    console.log(left)
+    let left = +document.getElementById("runaway").style.left.slice(0,-1)
+    console.log(document.getElementById("runaway").style.left.slice(0,-1))
 
-    if (left <300) {
-        left += (200 + Math.random()*100)
+    if (left <50) {
+        left += (20 + Math.random()*20)
     } else {
-        left -= (200 + Math.random()*100)
+        left -= (20 + Math.random()*20)
     }
 
-    let top = +document.getElementById("runaway").style.top.slice(0,-2)
-    if (top <200) {
-        top += (100 + Math.random()*100)
+    let top = +document.getElementById("runaway").style.top.slice(0,-1)
+    if (top <50) {
+        top += (20 + Math.random()*20)
     } else {
-        top -= (100 + Math.random()*100)
+        top -= (20 + Math.random()*20)
     }
     
 
-    document.getElementById("runaway").style.left=left+"px";
-    document.getElementById("runaway").style.top=top+"px";
+    document.getElementById("runaway").style.left=left+"%";
+    document.getElementById("runaway").style.top=top+"%";
     document.getElementById("runaway").innerHTML="Too slow!";
     setTimeout(resetButton, 800)
 }
