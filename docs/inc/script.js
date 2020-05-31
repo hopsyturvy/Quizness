@@ -7,14 +7,22 @@ function cheatButton () {
 }
 
 function moveButton () {
+    clearTimeout(timeout);
     document.getElementById("runaway").style.left=((50+Math.random()*200))+"px";
     document.getElementById("runaway").style.top=((10+Math.random()*200))+"px";
+    document.getElementById("runaway").innerHTML="&#x1f623;";
+}
+
+function noFace () {
+    if (disableNoFace==true) {return
+    } else {
     document.getElementById("runaway").innerHTML="Over here!";
-    setTimeout(resetButton, 500)
+    timeout=setTimeout(resetButton, 500)
+    }
 }
 
 function clickButton () {
-
+    disableNoFace=true
     let left = +document.getElementById("runaway").style.left.slice(0,-2)
     console.log(left)
 
@@ -40,6 +48,7 @@ function clickButton () {
 
 function resetButton () {
     document.getElementById("runaway").innerHTML="OK"
+    disableNoFace=false
 }
 
 function clickEffect(e){
@@ -50,7 +59,11 @@ function clickEffect(e){
     dd.addEventListener('animationend',function(){dd.parentElement.removeChild(dd);}.bind(this));
     }
 
+let timeout=""
+disableNoFace=false
 document.addEventListener('click',clickEffect);
 document.addEventListener("keydown", cheatButton);
-//document.getElementById("runaway").addEventListener("mouseover", moveButton);
+document.getElementById("runaway").addEventListener("mouseover", moveButton);
+document.getElementById("runaway").addEventListener("touchstart", moveButton);
+document.getElementById("runaway").addEventListener("mouseout", noFace);
 document.getElementById("runaway").addEventListener("mousedown", clickButton);
